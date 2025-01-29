@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Bubbles</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9F42P4EPC5"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS (popper.js included) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- JQuery datepicker script -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script rel="stylesheet" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+  <style>
+    .ui-datepicker-header {
+      background-color: orange;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .ui-datepicker-calendar td a {
+      color: black;
+    }
+
+    .ui-datepicker-calendar .ui-state-hover a,
+    .ui-datepicker-calendar .ui-state-active a {
+      background-color: #f4a460;
+    }
+  </style>
+  <style>
+    body {
+      background: #fff;
+      color: #54585a;
+    }
+
+    nav.navbar {
+      border-bottom: 6px solid #f7941d;
+    }
+
+    nav.navbar .navbar-nav .nav-link:hover {
+      border-bottom: 2px solid #f7941d;
+    }
+
+    .navbar-brand {
+      border-right: 1px solid #666;
+      padding-right: 1rem;
+      margin-right: 1rem;
+    }
+
+    .section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      margin: 2rem;
+      margin-top: 4rem;
+    }
+
+    .jumbotron {
+      position: relative;
+      background-image: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.7)),
+        url("https://www.benetas.com.au/assets/thumbnails/ADA_DalkeithHostel_087.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .jumbotron h1,
+    .jumbotron p {
+      color: #fff;
+    }
+
+    .jumbotron .tagline {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .card {
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 300px;
+    }
+
+    .card .content-container {
+      width: 100%;
+      box-sizing: border-box;
+      display: inline-block;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+
+    .card .fas {
+      font-size: 24px;
+      color: #f26d04;
+      margin: 0.5rem 0;
+    }
+
+    .card .content-container {
+      width: 100%;
+      box-sizing: border-box;
+      flex: 1;
+      /* Use flex property to occupy remaining space */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card h6 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .ready-to-use-section {
+      margin-bottom: 3rem;
+    }
+
+    .admin-menu {
+      background-color: #f8f9fa;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .admin-menu a {
+      margin-right: 1rem;
+    }
+
+    .separator {
+      height: 0.5px;
+      /* Increase the height value for a thicker separator */
+      background-color: #f7941d;
+      /* Choose your desired color */
+      margin: 2rem 50rem;
+      border: none;
+    }
+
+    .indented-text {
+      margin-left: 30px;
+      display: block;
+    }
+
+    .form {
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 3rem;
+      margin: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      height: auto;
+      justify-content: space-between;
+      align-items: center;
+      width: auto;
+      border-radius: 5px;
+    }
+
+    .input-tag {
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .input-outline {
+      border: 2px solid orange;
+      border-radius: 3px;
+    }
+
+    .input-outline:focus {
+      border: 5px solid orange;
+    }
+
+    .input-email {
+      width: 350px;
+    }
+
+    .submit-style {
+      background-color: Orange;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @keyframes buttonPress {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(0.8);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+      0% {
+        background-color: orange;
+      }
+
+      50% {
+        background-color: #fec89a;
+      }
+
+      100% {
+        background-color: orange;
+      }
+    }
+
+    .submitButton {
+      animation: buttonPress 0.2s linear;
+    }
+
+    .ui-datepicker-calendar {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div style="position: absolute; top: 0; z-index: -10;">
+<canvas ></canvas> <script src="js\bubbles
+.js"></script>
+</div> 
+</body>
+</html>

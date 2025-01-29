@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SineWave Canvas</title>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/dat.gui"></script>-->
+    <style>
+.container {
+  width: 100vw;
+  height: 10em;
+  
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.container > * {
+  color: #5920d6;
+  font-family: sans-serif;
+  font-size: 3em;
+}
+
+.move {
+  position: absolute;
+  animation: move 10s linear infinite;
+  top: calc(40% + 0.25em);
+  color: orange;
+  mix-blend-mode: Overlay; /* Apply mix-blend-mode */
+}
+
+.static {
+  position: absolute;
+  top: 60%;
+  display: inline-block;
+  color: orange;
+  mix-blend-mode: Multiply; /* Apply mix-blend-mode */
+}
+
+
+
+@keyframes move {
+  0% {
+    transform: translate(0, -0.1em);
+  }
+  100% {
+    transform: translate(50vw, -0.1em);
+  }
+}
+
+    </style>
+</head>
+<body>
+     <div style="position: absolute; top: 0; z-index: -10;"> 
+        <canvas id="SineCanvas" style=" border: 2px solid black;"></canvas>
+        <script  src="js/SineCanvas.js"></script>
+     </div> 
+     <div class="container">
+        <div class="static">Some lengthy text</div>
+        <div class="move">Hello World</div>
+      </div>
+</body>
+</html>

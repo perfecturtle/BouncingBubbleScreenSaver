@@ -1,0 +1,11 @@
+  .elasticCircle {
+  	--circle-size: 70px;
+  	position: fixed;
+  	height: var(--circle-size);
+  	width: var(--circle-size);
+  	border: 2px solid orange;
+  	border-radius: 50%;
+  	top: calc(var(--circle-size) / 2 * -1);
+  	left: calc(var(--circle-size) / 2 * -1);
+  	pointer-events: none;
+  }

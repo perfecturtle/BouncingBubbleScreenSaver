@@ -1,0 +1,135 @@
+.card {
+	position: relative;
+	margin: 0 auto;
+	/* padding: 2em; */
+	height: 364px;
+	width: 364px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: translate 0.5s ease-in-out;
+
+}
+
+.border {
+	position: relative;
+	height: 360px;
+	min-width: 360px;
+	background: #1c1f2b;
+	border-radius: 10px;
+}
+
+.card::before,
+.card::after {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+	/* background-image: conic-gradient(from var(--angle) ,transparent , #ff4545); */
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+	translate: -50% -50%;
+	padding: 3px;
+	border-radius: 10px;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+
+}
+
+.card:hover::before,
+.card:hover::after {
+	animation: spin 3s linear infinite;
+	opacity: 1;
+
+}
+
+.card:hover {
+	translate: 0 -15px;
+}
+
+
+.card::before {
+	filter: blur(1.5rem);
+
+}
+
+@keyframes spin {
+	0% {
+		--angle: 0deg;
+	}
+
+	100% {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+
+/* .card {
+	position: relative;
+	margin: 0 auto;
+	padding: 2em;
+	height: 300px;
+	width: 300px;
+	background: #1c1f2b;
+	text-align: center;
+	border-radius: 10px;
+}
+
+
+.card::before,
+.card::after {
+
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	z-index: -1;
+	padding: 3px;
+	border-radius: 10px;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+
+}
+
+.card:hover,
+.card:hover::before,
+.card:hover::after {
+	animation: spin 3s linear infinite;
+	opacity: 1;
+}
+
+
+
+.card::before {
+	filter: blur(1.5rem);
+
+}
+
+@keyframes spin {
+	0% {
+		--angle: 0deg;
+	}
+
+	100% {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+} */
